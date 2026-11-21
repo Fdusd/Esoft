@@ -4,6 +4,7 @@ function isValidBrackets(str) {
     '[': ']',
     '{': '}',
   };
+  
   const stack = [];
   for (const char of str) {
     if (char === '(' || char === '[' || char === '{') {
