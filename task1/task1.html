@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Домик на CSS</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            background: linear-gradient(#1e3c72, #2a5298, #6dd5ed);
+            overflow: hidden;
+            font-family: sans-serif;
+        }
+
+        .scene {
+            position: relative;
+            width: 400px;
+            margin-bottom: 60px;
+        }
+
+        .house {
+            position: relative;
+            width: 400px;
+            height: 220px;
+            background: #d9a05b;
+            border: 4px solid #8b5a2b;
+            border-bottom: none;
+            z-index: 1;
+        }
+
+        .roof {
+            position: relative;
+            right: 6px;
+            width: 0;
+            height: 0;
+            border-left: 210px solid transparent;
+            border-right: 210px solid transparent;
+            border-bottom: 140px solid #b03a2e;
+            z-index: 2;
+        }
+
+        .chimney {
+            position: absolute;
+            top: 40px;
+            left: 350px;
+            width: 40px;
+            height: 110px;
+            background: #7f5539;
+            z-index: 0;
+        }
+        
+        .chimney::after {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -6px;
+            width: 52px;
+            height: 12px;
+            background: #5c3d2e;
+            border-radius: 4px;
+        }
+
+        .door {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 120px;
+            background: #6b3e26;
+            border: 4px solid #4a2a17;
+            border-bottom: none;
+            border-radius: 35px 35px 0 0;
+        }
+        
+        .door::after {
+            content: "";
+            position: absolute;
+            top: 55px;
+            right: 10px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #f4c430;
+        }
+
+        .window {
+            position: absolute;
+            top: 60px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #bfe3ff, #4a90d9);
+            border: 6px solid #8b5a2b;
+            box-shadow: inset 0 0 0 4px #d9a05b;
+        }
+        .window.left  { left: 35px; }
+        .window.right { right: 35px; }
+
+        .moon {
+            position: fixed;
+            top: 60px;
+            right: 100px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #fdf6d8;
+            box-shadow: 0 0 40px 15px rgba(253, 246, 216, 0.4);
+        }
+
+        .ground {
+            position: fixed;
+            width: 100%;
+            left: 0px;
+            height: 60px;
+            background: linear-gradient(#3e7d3a, #2e5f2b);
+            border-top: 3px solid #2a521f;
+        }
+        
+        .path {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 100%;
+            background: #a89b7f;
+            border-radius: 0 0 50% 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="moon"></div>
+    <div class="scene">
+        <div class="chimney"></div>
+        <div class="roof"></div>
+        <div class="house">
+        <div class="door"></div>
+        <div class="window left"></div>
+        <div class="window right"></div>
+        </div>
+            <div class="ground">
+                <div class="path"></div>
+        </div>
+    </div>
+</body>
+</html>
